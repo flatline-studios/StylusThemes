@@ -1,0 +1,460 @@
+.st0{fill:lime !important;}
+
+/**
+ *  << LAYOUT
+ */
+
+    /*** ITEMS APPEAR IN THE HEIRARCHICAL ORDER ***/
+    
+    /* Body and HTML */
+    body,
+    html {
+        background-color: #171717;
+    }
+
+
+    /** HEADER **/
+
+        /* Header wrapper */
+        #ou-header {
+            max-width: 100%;
+            padding: 0 calc(calc(100% - 1180px) / 2) 20px;
+            background: linear-gradient(to bottom, #212121 0%, #171717 100%);
+        }
+
+        /* The OU logo SVG */
+        /* @hack - There isn't a good way to cross-site adjust an SVG, but
+                   using the `filter` CSS function is a good compromise.
+                   This will also continue working, even when the logo changes.
+        */
+        #ou-header #ou-logo a {
+            filter: brightness(1.55) hue-rotate(-8deg);
+        }
+
+        /* Identity Text */
+        #ou-identity {
+            color: #0190f5;
+        }
+
+        /* Header navigation */
+        #ou-header-nav {
+
+        }
+
+        /* Header links */
+        #ou-header-nav a {
+            color: #cdc8c0;
+            font-size: 1.2em;
+        }
+
+        /* Header active link */
+        #ou-header-nav #ou-ia-nav .student a {
+            font-weight: bold;
+            background-color: transparent;
+            border-radius: 0;
+            border: 1px solid #0190f5;
+            border-left: 0px;
+            border-right: 0px;
+        }
+
+
+    /** CONTENT **/
+
+        /* Site content wrapper */
+        #ou-site {
+            background-color: #171717;
+        }
+
+        /* Page wrapper */
+        #page-content {
+            background-color: #212121;
+        }
+
+        /* Page content */
+        #osep-pagewrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-content: stretch;
+            align-items: flex-start;
+            background-color: #2e2e2e;
+            color: #cdc8c0;
+            border: none;
+        }
+
+        /* Sidebar */
+        #osep-sidecol {
+            /* @reset */
+            float: none;
+            width: auto;
+            margin-right: 0;
+
+            order: 0;
+            flex: 0 0 300px;
+            align-self: auto;
+            margin-left: 2em;
+            padding-top: 4em;
+        }
+
+        /* Main content wrapper */
+        #osep-mainwrapper {
+            /* @reset */
+            float: none;
+            width: auto;
+
+            order: 1;
+            flex: 1 0 0;
+            align-self: auto;
+        }
+
+        /* Main column within the main content wrapper */
+        #osep-maincol {
+            /* @reset */
+            margin-left: 0;
+        }
+
+        /* Main textual content wrapper */
+        #middle-column {
+            padding: 1em;
+        }
+
+
+    /** FOOTER **/
+
+
+/**
+ *  LAYOUT >>
+ */
+
+
+
+
+/**
+ *  << SIDEBAR
+ */
+
+    /* Side border elements */
+    #osep-sidecol div,
+    #osep-sidecol span {
+        border-color: #cdc8c0;
+    }
+
+    /* Sidebar wrapper */
+    #osep-sidecol .oucontent-contents {
+        margin-right: 0;
+        border: none;
+    }
+
+    /* Sidebar list */
+    #osep-sidecol .oucontent-contents ul {
+        border: 1px solid #cdc8c0;
+        border-bottom: none;
+    }
+
+    /* Sidebar list items (all levels) */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        padding: 0;
+    }
+
+    /* The very first item in the contents list, when it's the current item */
+    #osep-sidecol .oucontent-contents > .content > ul > li.oucontent-tree-current:first-of-type > span.oucontent-tree-item {
+        border: none;
+    }
+
+    /* Sidebar list item link (all levels) */
+    /* The active tree title (:first-of-type selector) */
+    /* Don't include the expand/collapse arrow icons (:not selectors) */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item a:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item span:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents .content > ul > li.oucontent-tree-current > .oucontent-tree-item > span:first-of-type {
+        /*display: block;*/
+        display: inline-flex;
+        flex: 1;
+        margin-right: 40px;
+        padding: 6px;
+        padding-left: 30px;
+    }
+
+    /* Sidebar list item link (second level) */
+    #osep-sidecol .oucontent-contents ul li > ul li .oucontent-tree-item a:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents ul li > ul li .oucontent-tree-item span:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse) {
+        padding-left: 60px;
+    }
+
+    /* Sidebar list item link (third level) */
+    #osep-sidecol .oucontent-contents ul li > ul li > ul li .oucontent-tree-item a:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents ul li > ul li > ul li .oucontent-tree-item span:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse) {
+        padding-left: 90px;
+    }
+
+    /* Sidebar list item link, that isn't a sibling of an expander/collapser */
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > a:last-child,
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > span:last-child {
+        margin-right: 0;
+        padding-right: 30px;
+    }
+
+    /* Sidebar list item link, that IS an expander/collapser (overrides the above rule basically) */
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > a.osep-expandcollapse,
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > span.osep-expandcollapse {
+        padding-right: 0;
+    }
+
+    /* Sidebar expandeable arrows wrapper */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse {
+        height: 100%;
+        width: 40px;
+        right: 0;
+        top: 0;
+    }
+
+    /* Sidebar expandeable arrows link */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-expand,
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-collapse {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /* Sidebar expandeable arrows link image */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-expand > img,
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-collapse > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    /* Sublists */
+    #osep-sidecol .osep-hasexpandcollapse ul {
+        border: none;
+    }
+
+    /* Expandable trees */
+    #osep-sidecol .oucontent-contents .osep-hasexpandcollapse > .oucontent-tree-item {
+        background-color: #555555;
+    }
+
+    /* Sidebar expanded expandable tree list item */
+    #osep-sidecol .oucontent-contents > .content > ul > li.oucontent-tree-ancestor {
+        border-top: 1px solid #cdc8c0;
+    }
+
+    /* The first level active tree's text wrapper */
+    #osep-sidecol .oucontent-contents ul > li.oucontent-tree-ancestor > span {
+        border-bottom: 1px solid #cdc8c0;
+    }
+
+    /* The active tree */
+    #osep-sidecol .oucontent-contents .content ul > li.oucontent-tree-current > .oucontent-tree-item {
+        background-color: #0190f5;
+        border-top: 1px solid #cdc8c0;
+        border-bottom: 1px solid #cdc8c0;
+        border-left: none;
+    }
+
+    /* The active tree textual content */
+    #osep-sidecol .oucontent-contents .content ul > li.oucontent-tree-current > .oucontent-tree-item > span {
+        color: #212121;
+        font-weight: bold;
+    }
+
+    /* Sub-menu lists */
+    /* @FIX */
+    .path-mod-oucontent .oucontent-contents ul {
+        /* There's a noticable gap underneath the list's body. */
+        margin-bottom: 0;
+    }
+
+    /* Textual elements in sidebar */
+    #osep-sidecol h2,
+    #osep-sidecol a {
+        color: #cdc8c0;
+    }
+
+    /* "View as a single page" box */
+    /* @FIX */
+    #osep-sidecol .oucontent-printablelink {
+        margin-right: 0;
+    }
+
+/**
+ *  SIDEBAR >>
+ */
+
+
+
+
+/**
+ *  << CONTENT
+ */
+
+    /** GENERIC **/
+
+        /* Headings */
+        #region-main h1,
+        #region-main h2,
+        #region-main h3,
+        #region-main h4,
+        #region-main h5,
+        #region-main h6 {
+            color: #0190f5;
+        }
+
+        #region-main h1 {
+            font-size: 1.8em;
+        }
+
+        /* Textual elements */
+        #region-main p,
+        #region-main li {
+            color: #cdc8c0;
+            font-size: 1.2em;
+        }
+
+        /* Indented sections of text */
+        #region-main .oucontent-unnumbered > li {
+            margin-right: 1.2em;
+            padding-right: .3em;
+            background-color: #555555;
+        }
+
+
+    /** ACTIVITY BOX **/
+
+        /* Activity box container */
+        #region-main .oucontent-activity {
+            border: none;
+        }
+
+        /* Activity box's content */
+        #region-main .oucontent-activity * {
+            color: #f4f3f1;
+        }
+
+        /* Activity box heading */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-heading {
+            background-color: #0190f5;
+            border: 1px solid #cdc8c0;
+            border-bottom-width: 0;
+            color: #2e2e2e;
+            font-size: 1.3em;
+        }
+
+        /* Activity box body */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box {
+            background-color: #555555;
+            border: 1px solid #cdc8c0;
+        }
+
+        /* Activity box body text */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box p {
+        }
+
+
+    /** BOX (NOT A TYPO) AND EXAMPLE BOX **/
+
+        /* Box container */
+        #region-main .oucontent-box,
+        #region-main .oucontent-example {
+        }
+
+        /* Box content */
+        #region-main .oucontent-box *,
+        #region-main .oucontent-example * {
+            color: #f4f3f1;
+        }
+
+        /* Box heading */
+        #region-main .oucontent-box .oucontent-heading,
+        #region-main .oucontent-example .oucontent-heading {
+            background-color: #0190f5;
+            border: 1px solid #cdc8c0;
+            border-bottom-width: 0;
+            color: #2e2e2e;
+            font-size: 1.3em;
+        }
+
+        /* Box body */
+        #region-main .oucontent-box .oucontent-inner-box,
+        #region-main .oucontent-example .oucontent-inner-box {
+            background-color: #555555;
+            border: 1px solid #cdc8c0;
+        }
+
+        /* Box body text */
+        #region-main .oucontent-box .oucontent-inner-box p,
+        #region-main .oucontent-example .oucontent-inner-box p {
+        }
+
+
+    /**
+     *  << TABLES
+     */
+
+        /** GENERIC **/
+
+            /* Table borders */
+            #region-main .oucontent-table-wrapper,
+            #region-main table th,
+            #region-main table td {
+                border-color: #b3dfff;
+            }
+
+            /* Table headings */
+            #region-main th {
+                background-color: #0190f5;
+                color: #2e2e2e;
+                /* color: #474238; */
+            }
+
+            /* Table data */
+            #region-main td {
+                color: #cdc8c0;
+            }
+
+            /* Table footer */
+            #region-main .oucontent-table-footnote {
+                color: #f4f3f1;
+            }
+
+
+        /** ACTIVITY BOX **/
+
+            /* Activity box table wrapper */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-table-wrapper {
+                border-color: #b3dfff;
+                padding: 0;
+            }
+
+            /* Activity box table */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box table {
+                /*border: 2px solid red;*/
+            }
+
+            /* Activity box table header */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box table th {
+                background-color: #0190f5;
+                color: #2e2e2e;
+            }
+
+            /* Activity box table cell */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box table td {
+                color: #2e2e2e;
+            }
+
+    /**
+     *  TABLES >>
+     */
+
+/**
+ *  CONTENT >>
+ */

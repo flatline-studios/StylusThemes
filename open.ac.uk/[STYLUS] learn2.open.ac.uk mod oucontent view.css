@@ -1,0 +1,1243 @@
+/**
+ *  << IMPORTS
+ */
+
+    /*** THESE ARE FONT IMPORTS ***/
+
+    /* Source Code Pro */
+    @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+
+
+/**
+ *  IMPORTS >>
+ */
+
+
+
+/**
+ *  << MASTER
+ */
+
+    /*** THESE ARE GENERAL BROWSER OVERRIDES ***/
+
+    /* Focus outline remover */
+    :focus {
+        outline: none;
+    }
+
+    /* Selection highlighter */
+    ::selection {
+        background: #0190f5 !important;
+        color: #2e2e2e !important;
+    }
+
+
+    /** SCROLLBARS **/
+
+        ::-webkit-scrollbar {
+            background: #555555;
+            height: 11px;
+            width: 11px;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: rgba(255,255,255,0);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cdc8c0;
+            border: 5px solid #2e2e2e;
+            border-bottom-width: 10px;
+            border-top-width: 10px;
+        }
+
+
+/**
+ *  MASTER >>
+ */
+
+
+
+/**
+ *  << LAYOUT
+ */
+
+    /*** ITEMS APPEAR IN THE HEIRARCHICAL ORDER ***/
+    
+    /* Body and HTML */
+    body,
+    html {
+        background-color: #171717 !important;
+    }
+
+
+    /* Images */
+    img {
+        /* Prevents the page's main content from dropping below the contents sidebar. */
+        /* TODO: Make it more specific so that only images in the main content section have this applied. */
+        max-width: 100% !important;
+        width: auto !important;
+    }
+
+
+    /** HEADER **/
+
+        /* Header wrapper */
+        #ou-header {
+            max-width: 100% !important;
+            padding: 0 calc(calc(100% - 1180px) / 2) 20px !important;
+            background: linear-gradient(to bottom, #212121 0%, #171717 100%) !important;
+        }
+
+        /* The OU logo SVG */
+        /* @hack - There isn't a good way to cross-site adjust an SVG, but
+                   using the `filter` CSS function is a good compromise.
+                   This will also continue working, even when the logo changes.
+        */
+        #ou-header #ou-logo a {
+            filter: brightness(1.55) hue-rotate(-8deg) !important;
+        }
+
+        /* Identity Text */
+        #ou-identity {
+            color: #0190f5 !important;
+        }
+
+        /* Header navigation */
+        #ou-header-nav {
+
+        }
+
+        /* Header links */
+        #ou-header-nav a {
+            color: #cdc8c0 !important;
+            font-size: 1.2em !important;
+        }
+
+        /* Header active link */
+        #ou-header-nav #ou-ia-nav .student a {
+            font-weight: bold !important;
+            background-color: transparent !important;
+            border-radius: 0 !important;
+            border: 1px solid #0190f5 !important;
+            border-left: 0px !important;
+            border-right: 0px !important;
+        }
+
+
+    /** CONTENT **/
+
+        /* Site content wrapper */
+        #ou-site {
+            background-color: #171717 !important;
+        }
+
+        /* Page wrapper */
+        #page-content {
+            background-color: #212121 !important;
+        }
+
+        /* Page content */
+        #osep-pagewrapper {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            justify-content: space-between !important;
+            align-content: stretch !important;
+            align-items: flex-start !important;
+            background-color: #2e2e2e !important;
+            color: #cdc8c0 !important;
+            border: none !important;
+        }
+
+        /* Other locations banner */
+        #osep-pagewrapper .osep-repeatlocations {
+            width: 100% !important;
+        }
+
+        /* Sidebar */
+        #osep-sidecol {
+            /* @reset */
+            float: none !important;
+            width: auto !important;
+            margin-right: 0 !important;
+
+            order: 0 !important;
+            flex: 0 0 300px !important;
+            align-self: auto !important;
+            margin-left: 2em !important;
+            padding-top: 4em !important;
+        }
+
+        /* Main content wrapper */
+        #osep-mainwrapper {
+            /* @reset */
+            float: none !important;
+            width: auto !important;
+
+            order: 1 !important;
+            flex: 1 0 0 !important;
+            align-self: auto !important;
+        }
+
+        /* Main column within the main content wrapper */
+        #osep-maincol {
+            /* @reset */
+            margin-left: 0 !important;
+        }
+
+        /* Main textual content wrapper */
+        #middle-column {
+            padding: 1em !important;
+        }
+
+        /* Links in the main content */
+        #middle-column a {
+            color: #0190f5 !important;
+            text-decoration: none !important;
+            transition: all 200ms;
+        }
+
+        /* Links in the main content, focused, active and hovered */
+        #middle-column a:focus,
+        #middle-column a:active,
+        #middle-column a:hover {
+            color: #0074c6 !important;
+/*             text-decoration: underline #0190f5 !important; */
+        }
+
+
+    /** FOOTER **/
+        
+        /* Footer itself */
+        body .ou-footer {
+            height: 1.5em;
+            overflow: hidden;
+            padding: 0px;
+            background: #171717;
+        }
+        
+        /* On hovering the footer expander */
+        #ou-org-footer:hover {
+            height: auto !important;
+            padding: 20px 0 !important;
+        }
+
+        /* The footer expander text */
+        div#ou-org-footer::before {
+            content: 'HOVER TO SHOW FOOTER';
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            color: #cdc8c0;
+        }
+
+        /* On hovering the footer expander, hide the text. */
+        div#ou-org-footer:hover::before {
+            display: none;
+        }
+
+
+
+/**
+ *  LAYOUT >>
+ */
+
+
+
+
+/**
+ *  << SIDEBAR
+ */
+
+    /* Side border elements */
+    #osep-sidecol div,
+    #osep-sidecol span {
+        border-color: #cdc8c0 !important;
+    }
+
+    /* Sidebar outer wrapper */
+    #osep-sidecol > aside {
+        position: relative;
+    }
+
+    /* Sidebar attributation */
+    #osep-sidecol > aside::before {
+        content: 'OU Dark Theme';
+        position: absolute !important;
+        top: -2.5em !important;
+        left: 0 !important;
+        font-weight: bold !important;
+        right: 0 !important;
+        margin: auto !important;
+        text-align: center !important;
+        color: #0190f5 !important;
+        font-size: 1.5em !important;
+    }
+    #osep-sidecol > aside::after {
+        content: '<< Available at: << INSERT LINK >> >>';
+        position: absolute !important;
+        top: -2.2em !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: auto !important;
+        text-align: center !important;
+        font-size: 0.75em !important;
+    }
+
+    /* Sidebar wrapper */
+    #osep-sidecol .oucontent-contents {
+        margin-right: 0 !important;
+        border: none !important;
+    }
+
+    /* Sidebar list */
+    #osep-sidecol .oucontent-contents ul {
+        border: 1px solid #cdc8c0 !important;
+        border-bottom: none !important;
+    }
+
+    /* Sidebar list items (all levels) */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        padding: 0 !important;
+    }
+
+    /* The very first item in the contents list, when it's the current item */
+    #osep-sidecol .oucontent-contents > .content > ul > li.oucontent-tree-current:first-of-type > span.oucontent-tree-item {
+        border: none !important;
+    }
+
+    /* Sidebar list item link (all levels) */
+    /* The active tree title (:first-of-type selector) */
+    /* Don't include the expand/collapse arrow icons (:not selectors) */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > a:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > span:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents .content > ul > li.oucontent-tree-current > .oucontent-tree-item > span:first-of-type {
+        /*display: block !important;*/
+        display: inline-flex !important;
+        flex: 1 !important;
+        margin-right: 40px !important;
+        padding: 6px !important;
+        padding-left: 30px !important;
+    }
+
+    /* Sidebar list item link (second level) */
+    #osep-sidecol .oucontent-contents ul li 
+            > ul li .oucontent-tree-item a:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents ul li 
+            > ul li .oucontent-tree-item span:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse) {
+        padding-left: calc(30px + 2.5em) !important;
+    }
+
+    /* Sidebar list item link (third level) */
+    #osep-sidecol .oucontent-contents ul li 
+            > ul li
+            > ul li .oucontent-tree-item a:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse),
+    #osep-sidecol .oucontent-contents ul li
+            > ul li
+            > ul li .oucontent-tree-item span:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse) {
+        /* NOTE: No idea why it's 65px... Should be 60, but it doesn't line up right... Missing something here... */
+        padding-left: calc(65px + 2.5em) !important;
+    }
+
+    /* Sidebar list item link (third level) -- BEFORE (indent marker) */
+    #osep-sidecol .oucontent-contents ul li 
+            > ul li
+            > ul li .oucontent-tree-item a:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse)::before,
+    #osep-sidecol .oucontent-contents ul li
+            > ul li
+            > ul li .oucontent-tree-item span:not(.osep-expand):not(.osep-collapse):not(.osep-expandcollapse)::before {
+        content: ">";
+        position: absolute;
+        right: calc(100% - (65px + 1.5em));
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: 'Source Code Pro', monospace;
+        /* color: #0190f5; */
+        font-weight: bold;
+    }
+
+    /* Sidebar list item link, that isn't a sibling of an expander/collapser */
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > a:last-child,
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > span:last-child {
+        margin-right: 0 !important;
+        padding-right: 30px !important;
+    }
+
+    /* Sidebar list item link, that IS an expander/collapser (overrides the above rule basically) */
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > a.osep-expandcollapse,
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item > span.osep-expandcollapse {
+        padding-right: 0 !important;
+    }
+
+    /* Sidebar link item numbers ALL */
+    #ou-site #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .oucontent-titlenumber {
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-right: 0.5em !important;
+        min-width: 2em !important;
+    }
+
+    /* Sidebar link item numbers ALL */
+/*     #ou-site #osep-sidecol .oucontent-contents ul li > ul li .oucontent-tree-item .oucontent-titlenumber {
+        min-width: 2em !important;
+    } */
+
+    /* Sidebar expandeable arrows wrapper */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse {
+        height: 100% !important;
+        width: 40px !important;
+        right: 0 !important;
+        top: 0 !important;
+    }
+
+    /* Sidebar expandeable arrows link */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-expand,
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-collapse {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        
+        /* NEW */
+        background-size: 1em;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    /* Sidebar expandeable arrow */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-expand {
+        background-image: url(https://learn2.open.ac.uk/theme/image.php/osep/format_oustudyplan/1571908518/switch_minus_white);
+    }
+
+    /* Sidebar collapseable arrow */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-collapse {
+        background-image: url(https://learn2.open.ac.uk/theme/image.php/osep/format_oustudyplan/1571908518/switch_plus_white);
+    }
+
+    /* Sidebar expandeable arrows link image */
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-expand > img,
+    #osep-sidecol .oucontent-contents ul li .oucontent-tree-item .osep-expandcollapse > .osep-collapse > img {
+        
+        /* NEW */
+        display: none;
+        
+        /* OLD */
+/*         position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        margin: auto !important; */
+    }
+
+    /* Sublists */
+    #osep-sidecol .osep-hasexpandcollapse ul {
+        border: none !important;
+    }
+
+    /* Expandable trees */
+    #osep-sidecol .oucontent-contents .osep-hasexpandcollapse > .oucontent-tree-item {
+        background-color: #555555 !important;
+    }
+
+    /* Sidebar expanded expandable tree list item */
+    #osep-sidecol .oucontent-contents > .content > ul > li.oucontent-tree-ancestor {
+        border-top: 1px solid #cdc8c0 !important;
+    }
+
+    /* The first level active tree's text wrapper */
+    #osep-sidecol .oucontent-contents ul > li.oucontent-tree-ancestor > span {
+        border-bottom: 1px solid #cdc8c0 !important;
+    }
+
+    /* The active tree */
+    #osep-sidecol .oucontent-contents .content ul > li.oucontent-tree-current > .oucontent-tree-item {
+        background-color: #0190f5 !important;
+        border-top: 1px solid #cdc8c0 !important;
+        border-bottom: 1px solid #cdc8c0 !important;
+        border-left: none !important;
+    }
+
+    /* The active tree textual content */
+    #osep-sidecol .oucontent-contents .content ul > li.oucontent-tree-current > .oucontent-tree-item span {
+        color: #212121 !important;
+        font-weight: bold !important;
+    }
+
+    /* Sub-menu lists */
+    /* @FIX */
+    .path-mod-oucontent .oucontent-contents ul {
+        /* There's a noticable gap underneath the list's body. */
+        margin-bottom: 0 !important;
+    }
+
+    /* Textual elements in sidebar */
+    #osep-sidecol h2,
+    #osep-sidecol a,
+    #osep-sidecol span {
+        color: #cdc8c0 !important;
+    }
+
+    /* Textual elements in sidebar when hovered */
+    #osep-sidecol h2:hover,
+    #osep-sidecol a:hover,
+    #osep-sidecol span:hover {
+        text-decoration: none !important;
+    }
+
+    /*#osep-sidecol a {
+        background: linear-gradient(to right, #0190f5 0%, #0190f5 50%, #2e2e2e 50%, #2e2e2e 100%) !important;
+    }
+
+    #osep-sidecol a:hover {
+        text-decoration: none !important;
+        background-position-x: -50px !important;
+        background-repeat-x: no-repeat !important;
+    }*/
+
+    /* "View as a single page" box */
+    /* @FIX */
+    #osep-sidecol .oucontent-printablelink {
+        margin-right: 0 !important;
+    }
+
+/**
+ *  SIDEBAR >>
+ */
+
+
+
+
+/**
+ *  << CONTENT
+ */
+
+    /** GENERIC **/
+
+        /* Headings */
+        #region-main h1,
+        #region-main h2,
+        #region-main h3,
+        #region-main h4,
+        #region-main h5,
+        #region-main h6 {
+            color: #0190f5 !important;
+        }
+
+        #region-main h1 {
+            font-size: 1.8em !important;
+        }
+
+        /* Textual elements */
+        #region-main p,
+        #region-main li {
+            color: #cdc8c0 !important;
+            /*font-size: 1.2em !important;*/
+            font-size: 1.1rem !important;
+        }
+
+        /* Indented sections of text */
+        #region-main .oucontent-unnumbered > li {
+            margin-right: 1.2em !important;
+            padding-right: .3em !important;
+            background-color: #555555 !important;
+        }
+
+        /* Scrollable content */
+        #region-main .osep-scrollparent .osep-scrollcontainer {
+            overflow: unset;
+        }
+
+
+    /** BOOKMARK STUFF **/
+
+        /* Bookmark icon */
+        #region-main .bookmarks-container .bookmarks-element {
+            margin-right: 0;
+        }
+
+        /* Bookmark icon itself */
+        /* It's parsed as a 'content' pseudo element */
+        #region-main .bookmarks-container .bookmarks-element::before {
+            
+            /* TODO: GET THIS WORKING! */
+            /* Cheeky trick... More info: https://stackoverflow.com/a/10768631/1682790 */
+/*             content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"width="32" height="32"viewBox="0 0 32 32"style=" fill:%23000000;">    <path d="M 13 2 C 12.447 2 12 2.448 12 3 L 12 47 C 12 47.358 12.190953 47.689187 12.501953 47.867188 C 12.812953 48.045187 13.194906 48.043281 13.503906 47.863281 L 25 41.158203 L 36.496094 47.863281 C 36.651094 47.954281 36.826 48 37 48 C 37.172 48 37.344047 47.956187 37.498047 47.867188 C 37.809047 47.689188 38 47.358 38 47 L 38 35.820312 C 37.311 35.704313 36.644 35.529734 36 35.302734 L 36 45.259766 L 25.503906 39.136719 C 25.348906 39.045719 25.174 39 25 39 C 24.826 39 24.651094 39.045719 24.496094 39.136719 L 14 45.259766 L 14 4 L 36 4 L 36 12.697266 C 36.644 12.469266 37.311 12.295687 38 12.179688 L 38 3 C 38 2.448 37.553 2 37 2 L 13 2 z M 40.011719 13.988281 C 34.511719 13.988281 30.011719 18.488281 30.011719 23.988281 C 30.011719 29.488281 34.511719 33.988281 40.011719 33.988281 C 45.511719 33.988281 50.011719 29.488281 50.011719 23.988281 C 50.011719 18.488281 45.511719 13.988281 40.011719 13.988281 z M 40.011719 15.988281 C 44.411719 15.988281 48.011719 19.588281 48.011719 23.988281 C 48.011719 28.388281 44.411719 31.988281 40.011719 31.988281 C 35.611719 31.988281 32.011719 28.388281 32.011719 23.988281 C 32.011719 19.588281 35.611719 15.988281 40.011719 15.988281 z M 40.011719 18.087891 C 39.411719 18.087891 39.011719 18.487891 39.011719 19.087891 L 39.011719 22.988281 L 35.111328 22.988281 C 34.511328 22.988281 34.111328 23.388281 34.111328 23.988281 C 34.111328 24.588281 34.511328 24.988281 35.111328 24.988281 L 39.011719 24.988281 L 39.011719 28.888672 C 39.011719 29.488672 39.411719 29.888672 40.011719 29.888672 C 40.611719 29.888672 41.011719 29.488672 41.011719 28.888672 L 41.011719 24.988281 L 44.912109 24.988281 C 45.512109 24.988281 45.912109 24.588281 45.912109 23.988281 C 45.912109 23.388281 45.512109 22.988281 44.912109 22.988281 L 41.011719 22.988281 L 41.011719 19.087891 C 41.011719 18.487891 40.611719 18.087891 40.011719 18.087891 z"></path></svg>'); */
+            
+            margin-left: 0;
+        }
+
+        /* Bookmarks modal window */
+        #region-main .bookmarks-container .bookmarks-dialog {
+            right: 250px;
+            top: 0px;
+        }
+
+
+    /** GLOSSARY TERMS **/
+
+        /* Glossary terms */
+        #region-main .oucontent-glossaryterm-styling {
+            text-decoration: underline solid #0190f5;
+            text-decoration-skip-ink: none;
+        }
+
+
+    /** COMPUTER CODE BITS **/
+
+        /* Computing [CODE] sections */
+        #region-main .oucontent-computerui,
+        #region-main .oucontent-activity .oucontent-computerui,
+        #region-main .oucontent-computercode,
+        #region-main .oucontent-activity .oucontent-computercode {
+/*             padding: 0 3px 1px; */
+            padding: 0 3px;
+            font-size: 18px;
+            border: 1px solid #171717;
+            font-family: 'Source Code Pro', monospace;
+            background-color: #212121;
+            color: #cdc8c0;
+        }
+
+        /* Computing [CODE] sections, WITHIN a [CODEBLOCK] */
+        /* @FIX - Sloppy work on tagging the material. Should be either [CODE] or [CODEBLOCK], not both. */
+        #region-main .oucontent-computerdisplay .oucontent-computerui,
+        #region-main .oucontent-computerdisplay .oucontent-computercode {
+            padding: 0 !important;
+            border: none !important;
+            font-size: 1.1rem !important;
+            background-color: transparent !important;
+            color: inherit !important;
+        }
+
+        /* Computing [CODEBLOCK] sections */
+        #region-main .oucontent-computerdisplay,
+        #region-main .oucontent-activity .oucontent-computerdisplay {
+            /* REMOVED FOR EXPERIMENTAL! */
+/*             padding-left: 0.5em; */
+            margin: 0.75em 0;
+            background-color: #212121 !important;
+            border: 1px solid #171717 !important;
+            
+            /* EXPERIMENTAL! */
+            counter-reset: line-number 0;
+            
+            /* EXPERIMENTAL! */
+            /* <-- Hides the .osep-canscrollleft and .osep-canscrollright shadow effect --> */
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Computing [CODEBLOCK] line text */
+        #region-main .oucontent-computerdisplay p,
+        #region-main .oucontent-activity .oucontent-computerdisplay p {
+            color: #cdc8c0 !important;
+            font-family: 'Source Code Pro', monospace !important;
+            
+            /* EXPERIMENTAL! */
+            position: relative;
+            margin: 0 !important;
+            padding-left: 2.75em;
+            white-space: pre-wrap;
+        }
+
+        /* Computing [CODEBLOCK] ALTERNATE line text */
+        #region-main .oucontent-computerdisplay p:nth-child(2n),
+        #region-main .oucontent-activity .oucontent-computerdisplay p:nth-child(2n) {
+            background-color: #272727;
+        }
+
+        /* Computing [CODEBLOCK] line number */
+        #region-main .oucontent-computerdisplay p::before,
+        #region-main .oucontent-activity .oucontent-computerdisplay p::before {
+            counter-increment: line-number;
+            content: counter(line-number);
+            
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 1.75em;
+            padding-right: 0.5em;
+            border-right: 1px solid #0190f5;
+            text-align: right;
+        }
+
+        /* Computing [CODEBLOCK] FIRST line */
+        #region-main .oucontent-computerdisplay p:first-of-type,
+        #region-main .oucontent-computerdisplay p:first-of-type::before,
+        #region-main .oucontent-activity .oucontent-computerdisplay p:first-of-type,
+        #region-main .oucontent-activity .oucontent-computerdisplay p:first-of-type::before {
+            padding-top: 5px;
+        }
+
+        /* Computing [CODEBLOCK] LAST line */
+        #region-main .oucontent-computerdisplay p:last-of-type,
+        #region-main .oucontent-computerdisplay p:last-of-type::before,
+        #region-main .oucontent-activity .oucontent-computerdisplay p:last-of-type,
+        #region-main .oucontent-activity .oucontent-computerdisplay p:last-of-type::before {
+            padding-bottom: 5px;
+        }
+
+
+    /** SIDE-NOTES / ASIDES **/
+
+        /* Aside outer body */
+        /* TODO: THIS, BASICALLY! */
+        /*       AT THE MOMENT THEY'RE JUST LIKE THIS TO BE VISIBLE! */
+        /* Ex: https://learn2.open.ac.uk/mod/oucontent/view.php?id=1541663&section=1.1.1.__2 */
+        #region-main .oucontent-sidenote {
+            position: absolute;
+            right: auto !important;
+            left: -39px;
+            width: 32px;
+            height: 32px;
+            margin: 0;
+            z-index: 9;
+            background-color: #0190f5;
+            border: 1px solid #171717;
+        }
+
+        /* Aside outer body [HOVER] */
+        #region-main .oucontent-sidenote:hover {
+            width: auto;
+            height: auto;
+            max-height: 14.25em;
+            overflow-y: auto;
+            background-color: #1b1b1b;
+            border-color: #0190f5;
+        }
+
+        /* Aside inner body */
+        #region-main .oucontent-sidenote .oucontent-sidenote-inner {
+            width: auto;
+            max-width: 13em;
+            margin: 0;
+        }
+
+        /* Aside inner can scroll thingy */
+        #region-main .oucontent-sidenote .oucontent-sidenote-inner .osep-showing.osep-canscrollleft,
+        #region-main .oucontent-sidenote .oucontent-sidenote-inner .osep-showing.osep-canscrollright {
+            opacity: 0 !important;
+        }
+
+        /* Aside contents text */
+        #region-main .oucontent-sidenote .oucontent-sidenote-inner .oucontent-sidenote-para {
+            opacity: 0;
+            margin: 0.25em 0.5em;
+            color: #cdc8c0 !important;
+        }
+
+        /* Aside outer body [HOVER] contents text */
+        #region-main .oucontent-sidenote:hover .oucontent-sidenote-inner .oucontent-sidenote-para {
+            opacity: 1;
+        }
+
+        /* Aside AT START outer body */
+        #region-main .oucontent-sidenote.oucontent-sidenote-atstart {
+/*             width: auto; */
+        }
+
+        /* Aside AT START inner body */
+        #region-main .oucontent-sidenote.oucontent-sidenote-atstart .oucontent-sidenote-inner {
+/*             width: auto; */
+        }
+
+        /* Aside AT START contents text */
+        #region-main .oucontent-sidenote.oucontent-sidenote-atstart .oucontent-sidenote-inner .oucontent-sidenote-para {
+            opacity: 1;
+            margin: 0;
+        }
+
+        /* Aside AT START contents text */
+        /* @FIX */
+        /* This isn't always a picture. Sometimes it's just some more text... */
+        /* To handle that we check for the .accesshide younger sibling. */
+        #region-main .oucontent-sidenote.oucontent-sidenote-atstart .oucontent-sidenote-inner
+                .accesshide ~ .oucontent-sidenote-para {
+            opacity: 0;
+            margin: 0.25em 0.5em;
+        }
+
+        /* Aside AT START [HOVER] contents text */
+        /* @FIX */
+        #region-main .oucontent-sidenote.oucontent-sidenote-atstart:hover .oucontent-sidenote-inner
+                .accesshide ~ .oucontent-sidenote-para {
+            opacity: 1;
+            margin: 0.25em 0.5em;
+        }
+
+        /* Aside AT START inline figure */
+        #region-main .oucontent-sidenote.oucontent-sidenote-atstart .oucontent-sidenote-inner .oucontent-inlinefigure {}
+
+        /* Aside AT START inline figure image */
+        #region-main .oucontent-sidenote.oucontent-sidenote-atstart .oucontent-sidenote-inner .oucontent-inlinefigure-image {
+            vertical-align: middle;
+            background-color: white;
+        }
+
+
+    /** FIGURES **/
+
+        /* Figure wrapper */
+        #region-main .oucontent-figure {
+            margin-left: 2em;
+            
+            /* TODO: TWEAK THIS. IT'S NEW, AND MIGHT NOT WORK PROPERLY! */
+            display: inline-block;
+            border: 1px solid #cdc8c0 !important;
+            padding: 1em 1em 0;
+            background-color: #212121;
+        }
+
+        /* Figure image */
+        #region-main .oucontent-figure .oucontent-figure-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0.75em;
+        }
+
+        /* View larger figure image link */
+        #region-main .oucontent-figure .oucontent-figure-text .oucontent-thumbnaillink a {
+            color: #0190f5 !important;
+        }
+
+
+        /* Figure caption */
+        #region-main .oucontent-figure .oucontent-figure-text .oucontent-figure-caption {
+            color: #f4f3f1 !important;
+        }
+
+        /* Figure caption number */
+        #region-main .oucontent-figure .oucontent-figure-text .oucontent-figure-caption b,
+        #region-main .oucontent-figure .oucontent-figure-text .oucontent-caption {
+            color: #0190f5 !important;
+        }
+
+
+    /** OTHER LOCATIONS BANNER **/
+
+        /* Banner outer wrapper */
+        #osep-pagewrapper .osep-repeatlocations {
+            width: 100% !important;
+            background-color: #212121 !important;
+            border: none !important;
+            padding: 1rem !important;
+        }
+
+        /* Banner links */
+        #osep-pagewrapper .osep-repeatlocations a {
+            color: #0190f5 !important;
+        }
+
+
+    /** BOXES IN GENERAL **/
+
+        /* Box in a box */
+        #region-main .oucontent-outer-box .oucontent-inner-box .oucontent-outer-box .oucontent-inner-box {
+            padding-bottom: 0;
+        }
+
+        /* Text of a box in a box */
+        #region-main .oucontent-outer-box .oucontent-inner-box .oucontent-outer-box .oucontent-inner-box > p {
+            margin-bottom: 0.5em;
+        }
+
+
+    /** ACTIVITY BOX AND SAQ (SELF-ASSESSMENT QUESTION) **/
+
+        /* Activity box container */
+        #region-main .oucontent-activity,
+        #region-main .oucontent-saq {
+            overflow: hidden !important;
+            /*border: none !important;*/
+            border: 1px solid #cdc8c0 !important;
+            border-bottom-right-radius: 1em !important;
+            box-shadow: 2px 2px 4px 2px #171717 !important;
+        }
+
+        /* Activity box's content */
+        #region-main .oucontent-activity *,
+        #region-main .oucontent-saq * {
+            color: #f4f3f1;
+        }
+
+        /* Activity box heading */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-heading,
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-h3,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-heading,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-h3 {
+            background-color: #0190f5 !important;
+            border-bottom: 1px solid #cdc8c0 !important;
+            /*border-bottom-width: 0 !important;*/
+            color: #2e2e2e !important;
+            font-size: 1.3em !important;
+        }
+
+        /* Activity box "discussion" and in text heading */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-h4,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-h4 {
+            font-size: 1.5rem !important;
+            margin: 0.2em 0 0.5em !important;
+        }
+
+        /* Activity box body */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box {
+            background-color: #555555 !important;
+            border-radius: 0 !important;
+            /*border: 1px solid #cdc8c0 !important;*/
+        }
+
+        /* Activity box body text within a list */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box li > p,
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box li li,
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box li li > p,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box li > p,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box li li,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box li li > p {
+            font-size: 1em !important;
+        }
+
+        /* Activity sub box (study note) */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-studynote,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box .oucontent-studynote {
+            background-color: #2e2e2e !important;
+            border-radius: 0 !important;
+            border: 1px solid !important;
+            margin: 1em !important;
+        }
+
+        /* Activity sub box (study note), inner box */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-studynote .oucontent-inner-box,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box .oucontent-studynote .oucontent-inner-box {
+            border: none !important;
+            border-radius: 0 !important;
+            background-color: #2e2e2e !important;
+        }
+
+        /* Reveal answer wrapper */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle {
+        }
+
+        /* Reveal answer button */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle 
+        .oucontent-saq-toggle-link,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle 
+        .oucontent-saq-toggle-link {
+            height: auto !important;
+            padding: 8px !important;
+            border: 2px solid rgb(1, 144, 245) !important;
+            border-radius: 0px !important;
+            background: linear-gradient(rgb(46, 46, 46) 0%, rgb(46, 46, 46) 49.99%, rgb(33, 33, 33) 50%, rgb(33, 33, 33) 100%) !important;
+            background-size: 1px 200% !important;
+            background-position: 0 0 !important;
+            transition: background 200ms ease 0s !important;
+        }
+
+        /* Reveal answer button hover */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle 
+        .oucontent-saq-toggle-link:hover,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle 
+        .oucontent-saq-toggle-link:hover {
+            background-position: 0 100% !important;
+        }
+
+        /* Reveal answer button text */
+        #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle 
+        .oucontent-saq-toggle-link > span,
+        #region-main .oucontent-saq .oucontent-outer-box .oucontent-inner-box .oucontent-saq-toggle 
+        .oucontent-saq-toggle-link > span {
+            color: #0190f5 !important;
+            font-size: 1rem;
+        }
+
+
+    /** BOX (NOT A TYPO), EXAMPLE BOX AND STUDY NOTE BOX **/
+
+        /* Box container */
+        #region-main .oucontent-box,
+        #region-main .oucontent-example,
+        #region-main .oucontent-studynote {
+            overflow: hidden !important;
+            border: 1px solid #cdc8c0 !important;
+            border-bottom-right-radius: 1em !important;
+            box-shadow: 2px 2px 4px 2px #171717 !important;
+        }
+
+        /* Box content */
+        #region-main .oucontent-box *,
+        #region-main .oucontent-example *,
+        #region-main .oucontent-studynote * {
+            color: #f4f3f1 !important;
+        }
+
+        /* Box heading */
+        #region-main .oucontent-box .oucontent-heading,
+        #region-main .oucontent-example .oucontent-heading,
+        #region-main .oucontent-studynote .oucontent-heading {
+            background-color: #0190f5 !important;
+            border-bottom: 1px solid #cdc8c0 !important;
+            /*border-bottom-width: 0 !important;*/
+            color: #2e2e2e !important;
+            font-size: 1.3em !important;
+        }
+
+        /* Box body */
+        #region-main .oucontent-box .oucontent-inner-box,
+        #region-main .oucontent-example .oucontent-inner-box,
+        #region-main .oucontent-studynote .oucontent-inner-box {
+            background-color: #555555 !important;
+            border-radius: 0 !important;
+            /*border: 1px solid #cdc8c0 !important;*/
+        }
+
+        /* Box body text */
+        #region-main .oucontent-box .oucontent-inner-box p,
+        #region-main .oucontent-example .oucontent-inner-box p,
+        #region-main .oucontent-studynote .oucontent-inner-box p {
+        }
+
+
+        /* Box body lists */
+        #region-main .oucontent-box .oucontent-inner-box ul,
+        #region-main .oucontent-example .oucontent-inner-box ul,
+        #region-main .oucontent-studynote .oucontent-inner-box ul {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-top: 0.5em !important;
+            padding-bottom: 0.5em !important;
+        }
+
+
+    /** STUDY NOTE BOX ONLY **/
+
+        /* Study note container when a (small?) gradient class is applied too. */
+        /* @FIX */
+        #region-main .oucontent-studynote.oucontent-s-gradient {
+            border-radius: 0;
+            background-color: #555555 !important;
+        }
+
+
+    /**
+     *  << TABLES
+     */
+
+        /** GENERIC **/
+
+            /* Table wrapper (not always used) */
+            #region-main .oucontent-table-wrapper {
+                background-color: rgba(0, 0, 0, 0) !important;
+            }
+
+            /* Table scroll container */
+            #region-main .oucontent-table-wrapper .osep-scrollcontainer {
+                border-bottom: 2px solid #b3dfff !important;
+            }
+
+            /* Table borders */
+            #region-main .oucontent-table-wrapper,
+            #region-main table th,
+            #region-main table td {
+                border-color: #b3dfff !important;
+            }
+
+            /* Table headings */
+            #region-main th {
+                background-color: #0190f5 !important;
+                color: #2e2e2e !important;
+                /* color: #474238 !important; */
+            }
+
+            /* Table data */
+            #region-main td {
+                color: #cdc8c0 !important;
+            }
+
+            /* Table footer */
+            #region-main .oucontent-table-footnote {
+                color: #f4f3f1 !important;
+            }
+
+
+        /** MULTI-COLUMN BOX **/
+
+            /* A multi-column box wrapper */
+            /* TODO: FLESH THIS OUT! THIS IS A VERY BASIC FIX ATM. */
+            /* Ex: https://learn2.open.ac.uk/mod/oucontent/view.php?id=1541663&section=3.__0 */
+            #region-main .oucontent-multicol {
+                margin: 0;
+            }
+
+
+        /** ACTIVITY BOX **/
+
+            /* Activity box table wrapper */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box .oucontent-table-wrapper {
+                border-color: #b3dfff !important;
+                padding: 0 !important;
+            }
+
+            /* Activity box table */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box table {
+                /*border: 2px solid red !important;*/
+            }
+
+            /* Activity box table header */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box table th {
+                background-color: #0190f5 !important;
+                color: #2e2e2e !important;
+            }
+
+            /* Activity box table cell */
+            #region-main .oucontent-activity .oucontent-outer-box .oucontent-inner-box table td {
+                color: #2e2e2e !important;
+            }
+
+    /**
+     *  TABLES >>
+     */
+
+
+
+    /** PREVIOUS AND NEXT BUTTONS **/
+
+        /* Button wrappers */
+        #region-main .oucontent-prev,
+        #region-main .oucontent-next {
+        }
+
+        /* All previous/next button content */
+        #region-main .oucontent-prev *,
+        #region-main .oucontent-next * {
+            color: #f4f3f1 !important;
+        }
+
+        /* Buttons themselves */
+        #region-main .arrow_link {
+            height: auto !important;
+            padding: 8px !important;
+            font-size: 0 !important;
+            border: 2px solid #0190f5 !important;
+            border-radius: 0 !important;
+            background: linear-gradient(to bottom, #2e2e2e 0%, #2e2e2e 49.99%, #212121 50%, #212121 100%) !important;
+            background-size: 1px 200% !important;
+            background-position: 0 0 !important;
+            transition: background 200ms !important;
+        }
+
+        /* Button being hovered */
+        #region-main .arrow_link:hover {
+            background-position: 0 100% !important;
+        }
+
+        /* Button text when the button is hovered */
+/*         #region-main .arrow_link:hover .arrow_text {
+            text-decoration: none !important;
+        } */
+
+        /* Button arrows */
+        #region-main .arrow_link .arrow {
+            display: none !important;
+        }
+
+        /* Button text */
+        #region-main .arrow_link .arrow_text {
+            font-size: 1rem !important;
+            color: #0190f5 !important;
+            text-decoration: none !important;
+        }
+
+
+    /** QUOTE BLOCKS **/
+
+        /* Quote wrapper */
+        #region-main .oucontent-quote {
+            background: #555555 !important;
+            padding: 0.75em 1.5em !important;
+            border-left: 5px solid #0190f5 !important;
+            border-bottom-right-radius: 1em !important;
+            box-shadow: 2px 2px 4px 2px #171717 !important;
+        }
+
+        /* Quote body */
+        #region-main .oucontent-quote blockquote {
+        }
+
+        /* Quote body text (first one) */
+        #region-main .oucontent-quote blockquote p:first-of-type {
+            margin-top: 0 !important;
+            color: #dddad4 !important;
+        }
+
+        /* Quote reference */
+        #region-main .oucontent-quote .oucontent-source-reference {
+            margin: 0 !important;
+            color: #f4f3f1 !important;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+
+    /** FOOTER **/
+
+        /* Footer general text elements */
+        #ou-org-footer.ou-footer p {
+            color: #cdc8c0 !important;
+        }
+
+        /* Footer headings */
+        #ou-org-footer.ou-footer h1,
+        #ou-org-footer.ou-footer h2,
+        #ou-org-footer.ou-footer h3,
+        #ou-org-footer.ou-footer h4,
+        #ou-org-footer.ou-footer h5,
+        #ou-org-footer.ou-footer h6 {
+            color: #0190f5 !important;
+        }
+
+        /* Footer heading "The Open University" */
+        #ou-org-footer.ou-footer h1,
+        #ou-org-footer.ou-footer h2,
+        #ou-org-footer.ou-footer h3 {
+            font-size: 2em;
+        }
+
+        /* Footer sub-headings */
+        #ou-org-footer.ou-footer h4,
+        #ou-org-footer.ou-footer h5,
+        #ou-org-footer.ou-footer h6 {
+            font-size: 1.5em;
+        }
+
+        /* Footer links */
+        #ou-org-footer.ou-footer a {
+            color: #0190f5 !important;
+            text-decoration: none !important;
+            transition: all 200ms;
+        }
+
+        /* Footer links focus, active and hover */
+        #ou-org-footer.ou-footer a:focus,
+        #ou-org-footer.ou-footer a:active,
+        #ou-org-footer.ou-footer a:hover {
+            color: #0074c6 !important;
+        }
+
+        /* OU Crest */
+        #ou-org-footer.ou-footer .ou-header .ou-crest {
+            width: auto;
+        }
+
+/**
+ *  CONTENT >>
+ */
